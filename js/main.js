@@ -56,6 +56,7 @@ let users = [
 ]
 
 const phoneArr = [];
+let sum = 0;
 
 for (i = 0; i < users.length; i++) {
   let currentBalance = users[i].balance.split("");
@@ -63,9 +64,12 @@ for (i = 0; i < users.length; i++) {
   currentBalance.splice(1, 1);
   let toStr = currentBalance.join("");
   users[i].balance = +toStr;
+  sum += users[i].balance;
   if (users[i].balance > 2000) {
     phoneArr.push(users[i].phone);
   }
 }
 
+
 console.log(phoneArr);
+console.log(sum.toFixed(2) + '$' + ' сумма всех балансов пользователей');
